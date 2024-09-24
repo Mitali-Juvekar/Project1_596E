@@ -1,6 +1,7 @@
+import os
+
 from flask_ml.flask_ml_client import MLClient
 from flask_ml.flask_ml_server.constants import DataTypes
-import os
 
 # The URL of the server
 url = "http://127.0.0.1:5000/syndromedetection"
@@ -12,7 +13,9 @@ client = MLClient(url)
 image_dir = "/Users/mitalijuvekar/Documents/SEM3/596E/Project1/data/dataset/test"
 
 # Get all image files from the directory
-image_files = [f for f in os.listdir(image_dir) if f.lower().endswith(('.png', '.jpg', '.jpeg'))]
+image_files = [
+    f for f in os.listdir(image_dir) if f.lower().endswith((".png", ".jpg", ".jpeg"))
+]
 
 # Display available images to the user
 print("Available images:")
@@ -33,7 +36,7 @@ except ValueError as e:
 
 # # Create inputs list with full file paths
 # inputs = [
-#     {"file_path": os.path.join(image_dir, image_file)}  
+#     {"file_path": os.path.join(image_dir, image_file)}
 #     for image_file in image_files[:5]  # Limit to 5 images for this example
 # ]
 
@@ -53,10 +56,10 @@ print(response)
 # Process and print individual results
 print("\nIndividual Results:")
 for result in response:  # Change this line to iterate directly over response
-    image_name = result['file_path']  # Access file_path directly from result
-    prediction = result['result']['class']
-    probability = result['result']['probability']
-    
+    image_name = result["file_path"]  # Access file_path directly from result
+    prediction = result["result"]["class"]
+    probability = result["result"]["probability"]
+
     print(f"Image: {image_name}")
     print(f"Prediction: {prediction}")
     print(f"Probability: {probability:.4f}")
@@ -80,7 +83,7 @@ for result in response:  # Change this line to iterate directly over response
 
 # # Create inputs list with full file paths
 # inputs = [
-#     {"file_path": os.path.join(image_dir, image_file)}  
+#     {"file_path": os.path.join(image_dir, image_file)}
 #     for image_file in image_files[:5]  # Limit to 5 images for this example
 # ]
 
@@ -97,10 +100,10 @@ for result in response:  # Change this line to iterate directly over response
 # # Process and print individual results
 # print("\nIndividual Results:")
 # for result in response['results']:
-#     image_name = os.path.basename(result['file_path']) 
+#     image_name = os.path.basename(result['file_path'])
 #     prediction = result['result']['class']
 #     probability = result['result']['probability']
-    
+
 #     print(f"Image: {image_name}")
 #     print(f"Prediction: {prediction}")
 #     print(f"Probability: {probability:.4f}")
