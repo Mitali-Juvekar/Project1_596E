@@ -4,8 +4,8 @@ This project implements a machine learning service for detecting Down syndrome f
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/down-syndrome-detection.git
-cd down-syndrome-detection
+git clone https://github.com/Mitali-Juvekar/Project1_596E.git
+cd Project1_596E
 ```
 
 2. Create and activate a virtual environment:
